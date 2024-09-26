@@ -1,0 +1,24 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <app-input
+                [data]="content.section[0].content[0]"
+                theme="bootstrap"
+                [parentClick]="onclick(content.section[0].content[0])"
+                [parentBlur]="onblur(content.section[0].content[0])"
+                [parentChange]="onchange(content.section[0].content[0])">
+            </app-input>
+        </div>
+        <div class="col">
+            <app-input
+                [data]="content.section[0].content[1]"
+                theme="bootstrap"
+                [parentClick]="onclick(content.section[0].content[1])"
+                [parentBlur]="onblur(content.section[0].content[1])"
+                [parentChange]="onchange(content.section[0].content[1])">
+            </app-input>
+        </div>
+    </div>
+</div>
+ 

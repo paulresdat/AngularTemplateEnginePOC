@@ -1,0 +1,30 @@
+
+<div [ngClass]="classes" [ngSwitch]="inputType">
+    <div class="form-check" *ngSwitchCase="'radio'">
+        <label>{{label}}</label>
+        <div *ngFor="let value of inputValues; index as j">
+            <input 
+                type="radio"
+                [value]="value.value"
+                [name]="name" 
+                class="form-check-input"
+                (click)="parentClick(inputRef.value)"
+                (blur)="parentBlur(inputRef.value)"
+                (change)="parentChange(inputRef.value)" #inputRef>
+            <label class="form-check-label">{{value.name}}</label>
+        </div>
+    </div>
+    <div class="form-group" *ngSwitchCase="'dropdown'">
+        <label>{{label}}</label>
+        <select
+            [name]="name" 
+            class="form-control"
+            (click)="parentClick(inputRef.value)"
+            (blur)="parentBlur(inputRef.value)"
+            (change)="parentChange(inputRef.value)" #inputRef>
+            <option *ngFor="let v of inputValues" [value]="v.value">
+                {{v.name}}
+            </option>
+        </select>
+    </div>
+</div>

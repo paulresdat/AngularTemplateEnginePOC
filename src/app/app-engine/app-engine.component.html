@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            Choose your settings:
+        </div>
+        <div class="col">
+            <button (click)="chooseBootstrap()" class="btn btn-primary">Theme 1</button>
+            <button (click)="chooseOther()" class="btn btn-secondary">Theme 2</button>
+        </div>
+        <div class="col">
+            <button (click)="setAppId(1)" class="btn btn-primary">APP 1</button>
+            <button (click)="setAppId(2)" class="btn btn-secondary">APP 2</button>
+        </div>
+    </div>
+</div>
+
+<div [ngSwitch]="template">
+    <div *ngSwitchCase="'bootstrap'">
+        <theme1-layout
+            (AppEngineEventEmitter)="getEvent($event)"
+        ></theme1-layout>
+    </div>
+    <div *ngSwitchCase="'other'">
+        <app-theme2-layout1
+            (AppEngineEventEmitter)="getEvent($event)">
+        </app-theme2-layout1>
+    </div>
+    <div *ngSwitchDefault>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="alert alert-primary">
+                        Choose a theme and toggle the different apps.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div style="border:1px solid gray; margin-top:1em;min-height:500px;min-width:100%;">
+                    <pre><code [innerHTML]="logAsString"></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
